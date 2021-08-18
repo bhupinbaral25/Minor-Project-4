@@ -1,6 +1,6 @@
 This is the repository for minor Project-4 of machine learning intership at leaprog. Project is based on NLP.
 
-1) Notebook - All the ipython notebooks used for EDA, visualization and veriication.
+1) Notebook - All the ipython notebooks used for EDA, visualization and verification.
 
 2)  src - src contain all important scripts with different function for the project 
 
