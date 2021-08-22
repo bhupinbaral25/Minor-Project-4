@@ -8,7 +8,7 @@ def get_sentence_embeddings(model, sentence : list ) :
     -----------------------------------------------------
     convert sentence into embeddings
     -----------------------------------------------------
-    return embeddings of give sentence
+    return embeddings of given sentence
     '''
 
     return model.encode(sentence)

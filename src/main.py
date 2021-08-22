@@ -4,7 +4,7 @@ from src import utils
 
 if __name__ == '__main__':
 
-    df = pd.read_csv('../data/sts_test.csv')
+    df = pd.read_csv('../sts_dataset/sts_test.csv')
 
     models = ['paraphrase-MiniLM-L6-v2', 
         'nli-distilroberta-base-v2']
