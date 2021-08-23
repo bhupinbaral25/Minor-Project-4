@@ -1,8 +1,9 @@
 from models import CountVectorizerEmbedding,TfidfEmbedding,GloveEmbedding
 import pandas as pd
+from src import utils
 
-models = ['paraphrase-MiniLM-L6-v2', 
-        'nli-distilroberta-base-v2','CountVectorizerEmbedding','TfidfEmbedding','GloveEmbedding']
+models = ['CountVectorizerEmbedding','TfidfEmbedding','GloveEmbedding']
+pretrained_model = ['paraphrase-MiniLM-L6-v2','nli-distilroberta-base-v2']
 
 pearson_coeff_dict = { }
 
@@ -52,10 +53,9 @@ for model in models:
         sim_scores = glv_embed.similarity_score(sentences1_embedding_glove, sentences2_embedding_glove)
         pearson_coeff = glv_embed.pearson_correlation(sim_scores, sts_test["sim"])
         pearson_coeff_dict[model] = pearson_coeff
-        pass
-    else:
-        pass
-
-
-
+        
+sts_test = pd.read_csv("../sts_dataset/sts_test.csv")   
+similarity_score = utils.test_model(pretrained_model, sts_test, 'sent_1', 'sent_2')
+similariy_score_df = pd.DataFrame.from_dict(similarity_score)
+print('Similarity Score', similarity_score_df)    
 print("pearson_coeff_dict : ",pearson_coeff_dict)
